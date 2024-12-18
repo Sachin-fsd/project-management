@@ -3,9 +3,11 @@
 import UserModel from "@/models/user.model";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
+import { ConnectDb } from "@/database";
 
 export async function POST(req) {
     try {
+        await ConnectDb()
 
         // Parse request body
         const { name, email, password, role } = await req.json();

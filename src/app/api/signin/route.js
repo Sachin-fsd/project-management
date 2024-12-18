@@ -4,10 +4,12 @@ import UserModel from "@/models/user.model";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { ConnectDb } from "@/database";
 
 export async function POST(req) {
     try {
-        
+        await ConnectDb()
+
         // Parse request body
         const { email, password } = await req.json();
 
