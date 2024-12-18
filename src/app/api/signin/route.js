@@ -36,7 +36,7 @@ export async function POST(req) {
         // Generate JWT token
         const token = jwt.sign(
             { UserDetails },
-            process.env.SECRET_KEY, // Ensure SECRET_KEY is defined in your environment variables
+            process.env.SECRET_KEY || "sachin", // Ensure SECRET_KEY is defined in your environment variables
             { expiresIn: "7 days" }
         );
 
